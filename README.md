@@ -82,10 +82,15 @@ aptos move publish --named-addresses escrow=default --assume-yes --max-gas 10000
 aptos move run --function-id default::escrow::initialize --assume-yes --max-gas 10000
 
 ### 5. Configure oracle address
+
 Copy your oracle address from: aptos account list
+
 Replace YOUR_ORACLE_ADDRESS_HERE in:
+
 oracle/index.js  (ORACLE_ADDRESS variable)
+
 oracle/aptos.js  (private key and address)
+
 frontend/src/aptos.js  (ORACLE_ADDRESS export)
 
 ### 6. Start Oracle (Terminal 1)
@@ -94,7 +99,7 @@ cd oracle && node index.js
 ### 7. Start Frontend (Terminal 2)
 cd frontend && npm run dev
 
-# Open http://localhost:5173 in Chrome with Petra Wallet accounts
+Open http://localhost:5173 in Chrome with Petra Wallet accounts
 
 ### 8. Run unit tests
 aptos move test --named-addresses escrow=default
