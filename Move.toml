@@ -1,0 +1,12 @@
+[package]
+name = "FreelanceEscrow"
+version = "1.0.0"
+authors = ["BF-team"]
+
+[addresses]
+escrow = "_"
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "devnet"
+subdir = "aptos-move/framework/aptos-framework"
