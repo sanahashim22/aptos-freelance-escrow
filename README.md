@@ -8,7 +8,7 @@ and payment release using Move smart contracts, IPFS (Pinata), and Docker.
 - Oracle: Node.js + Aptos TypeScript SDK + Docker (Python/JS/Java)
 - Frontend: React.js + Vite + Petra Wallet
 - Storage: IPFS via Pinata
-- 
+
 
 ## Phase 2: Architecture & Initial Implementation
 
