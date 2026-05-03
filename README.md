@@ -1,7 +1,5 @@
 # Freelance Code Evaluation Platform - Aptos Escrow DApp
 
-## Phase 3: Core Implementation & Validation
-
 A trustless DApp on Aptos blockchain that automates freelance code evaluation
 and payment release using Move smart contracts, IPFS (Pinata), and Docker.
 
@@ -10,6 +8,50 @@ and payment release using Move smart contracts, IPFS (Pinata), and Docker.
 - Oracle: Node.js + Aptos TypeScript SDK + Docker (Python/JS/Java)
 - Frontend: React.js + Vite + Petra Wallet
 - Storage: IPFS via Pinata
+- 
+
+## Phase 2: Architecture & Initial Implementation
+
+### 1. Clone and install
+```bash
+git clone https://github.com/YOUR_USERNAME/aptos-freelance-escrow
+cd aptos-freelance-escrow
+npm install  # root deps
+cd oracle && npm install && cd ..
+cd frontend && npm install && cd ..
+```
+
+### 2. Configure
+Edit oracle/index.js and frontend/src/aptos.js:
+Replace YOUR_ORACLE_ADDRESS_HERE with your Aptos account address.
+
+### 3. Deploy contract
+```bash
+aptos init --network devnet
+aptos move compile --named-addresses escrow=default
+aptos move publish --named-addresses escrow=default --assume-yes
+```
+
+### 4. Start Oracle
+```bash
+cd oracle && node index.js
+```
+
+### 5. Start Frontend
+```bash
+cd frontend && npm run dev
+# Open http://localhost:5173
+```
+
+## Demo Flow
+1. Client connects Petra Wallet → creates milestone → locks APT
+2. Freelancer submits code CID (uploaded to IPFS)
+3. Oracle automatically evaluates code in Docker
+4. If tests pass → APT auto-released to freelancer
+5. If tests fail → funds held; client can retry or refund
+
+
+## Phase 3: Core Implementation & Validation
 
 ## Prerequisites
 - Ubuntu 22.04 (or WSL2 on Windows)
